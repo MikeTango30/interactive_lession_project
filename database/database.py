@@ -52,27 +52,30 @@ def create_publisher_table():
     finally:
         close_connection(connection, cursor)
 
+
 create_books_table()
 create_publisher_table()
-def function(object):
-    try:
-        connection, cursor = open_connection()
 
-        query = "INSERT INTO "
-        table
-        " VALUES (?,?,?)"
-
-        query_parameters = (object.title, object.year)
-
-        cursor.execute(query, query_parameters)
-
-        connection.commit()
-
-    except sqlite3.DatabaseError as error:
-        print(error)
-
-    finally:
-        close_connection(connection, cursor)
+# 
+# def function(object):
+#     try:
+#         connection, cursor = open_connection()
+# 
+#         query = "INSERT INTO "
+#         table
+#         " VALUES (?,?,?)"
+# 
+#         query_parameters = (object.title, object.year)
+# 
+#         cursor.execute(query, query_parameters)
+# 
+#         connection.commit()
+# 
+#     except sqlite3.DatabaseError as error:
+#         print(error)
+# 
+#     finally:
+#         close_connection(connection, cursor)
 
 
 def create_book(book):
@@ -80,7 +83,7 @@ def create_book(book):
         connection, cursor = open_connection()
 
         query = "INSERT INTO books VALUES (? ,?, ?, ?)"
-        query_parameters = (book.id,book.book_title, book.author, book.selling_price)
+        query_parameters = (book.id, book.book_title, book.author, book.selling_price)
         cursor.execute(query, query_parameters)
         connection.commit()
 
@@ -90,7 +93,10 @@ def create_book(book):
     finally:
         close_connection(connection, cursor)
 
-book1=book(None, "Tu gali", "Josef Murphy", 25.05)
+
+book1 = book(None, "Tu gali", "Josef Murphy", 25.05)
+
+
 # create_book(book1)
 
 def get_book(book):
@@ -115,6 +121,7 @@ def get_book(book):
 
 get_book(book1)
 
+
 def update_book(book):
     try:
         connection, cursor = open_connection()
@@ -133,8 +140,10 @@ def update_book(book):
     finally:
         close_connection(connection, cursor)
 
+
 update_book(book1)
 get_book(book1)
+
 
 def delete_book(book):
     try:
@@ -152,9 +161,9 @@ def delete_book(book):
     finally:
         close_connection(connection, cursor)
 
+
 delete_book(book1)
 get_book(book1)
-
 
 
 def create_publisher(publisher):
@@ -169,10 +178,12 @@ def create_publisher(publisher):
         print(error)
     finally:
         close_connection(connection, cursor)
+
+
 publisher1 = publisher(None, "Baltos_lankos", "Tu_gali", "Josef_Murphy", 5000, 8)
+
+
 # create_publisher(publisher1)
-
-
 
 
 def get_publisher(publisher):
@@ -190,8 +201,9 @@ def get_publisher(publisher):
         print(error)
     finally:
         close_connection(connection, cursor)
-# get_publisher(publisher1)
 
+
+# get_publisher(publisher1)
 
 
 def update_publisher(publisher):
@@ -208,6 +220,7 @@ def update_publisher(publisher):
         print(error)
     finally:
         close_connection(connection, cursor)
+
 
 # update_publisher(publisher1)
 # get_publisher(publisher1)
@@ -228,6 +241,7 @@ def delete_publisher(publisher):
     finally:
         close_connection(connection, cursor)
 
+
 # delete_publisher(publisher1)
 # get_publisher(publisher1)
 
@@ -235,6 +249,7 @@ def delete_publisher(publisher):
 def filter_by_name(publisher):
     book_name = publisher.book_name
     return book_name
+
 
 def filter_by_field(publisher):
     try:
@@ -253,5 +268,6 @@ def filter_by_field(publisher):
         print(error)
     finally:
         close_connection(connection, cursor)
+
 
 filter_by_field(publisher1)
